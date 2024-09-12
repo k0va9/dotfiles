@@ -4,8 +4,7 @@ function! PackInit() abort
 
   call minpac#init()
   call minpac#add('k-takata/minpac', { 'type': 'opt' })
-  call minpac#add('mattn/vim-molder')
-  call minpac#add('mattn/vim-molder-operations')
+  call minpac#add('ctrlpvim/ctrlp.vim')
 endfunction
 "}}}
 
