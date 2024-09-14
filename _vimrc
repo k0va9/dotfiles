@@ -23,6 +23,7 @@ set expandtab
 let g:mapleader="\<Space>"
 
 tnoremap <C-[> <C-\><C-n>
+nnoremap <leader>f <Cmd>CtrlP .<CR>
 "}}}
 
 " vim: foldmethod=marker foldlevelstart=99
