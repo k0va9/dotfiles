@@ -17,6 +17,14 @@ command! PackClean call PackInit() | call minpac#clean()
 colorscheme habamax
 set shiftwidth=2
 set expandtab
+
+"cmdheight
+try
+  set cmdheight=0
+catch
+  set cmdheight=1
+endtry
+
 "}}}
 
 "mapping {{{
