@@ -5,7 +5,19 @@ function! PackInit() abort
   call minpac#init()
   call minpac#add('k-takata/minpac', { 'type': 'opt' })
   call minpac#add('ctrlpvim/ctrlp.vim')
+
+  "lsp
+  call minpac#add('prabirshrestha/vim-lsp')
+  call minpac#add('mattn/vim-lsp-settings')
+  call minpac#add('prabirshrestha/asyncomplete.vim')
+  call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
 endfunction
+
+"lsp{{{
+
+"disable Please do... message
+let g:lsp_settings_enable_suggestions=0
+"}}}
 "}}}
 
 "commands {{{
