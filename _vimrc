@@ -44,6 +44,8 @@ let g:mapleader="\<Space>"
 
 tnoremap <C-[> <C-\><C-n>
 nnoremap <leader>f <Cmd>CtrlP .<CR>
+nnoremap gh <Cmd>LspHover<CR>
+nnoremap gd <Cmd>LspDefinition<CR>
 "}}}
 
 " vim: foldmethod=marker foldlevelstart=99
