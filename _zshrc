@@ -1,0 +1,5 @@
+if [ -f ~/.git-prompt.sh ]; then
+  source ~/.git-prompt.sh
+fi
+
+setopt PROMPT_SUBST ; PS1='%n@%m$(__git_ps1 "(%s)")\$ '
