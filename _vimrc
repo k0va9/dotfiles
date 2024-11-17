@@ -13,11 +13,8 @@ function! PackInit() abort
   call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
 endfunction
 
-"lsp{{{
-
 "disable Please do... message
 let g:lsp_settings_enable_suggestions=0
-"}}}
 "}}}
 
 "commands {{{
