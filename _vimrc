@@ -23,10 +23,10 @@ command! PackClean call PackInit() | call minpac#clean()
 "}}}
 
 "opts {{{
-colorscheme habamax
+colorscheme retrobox
 
 "for lsp preview
-highlight clear FloatBorder
+"highlight clear FloatBorder
 
 set shiftwidth=2
 set expandtab
