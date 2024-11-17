@@ -30,14 +30,8 @@ colorscheme retrobox
 
 set shiftwidth=2
 set expandtab
-
-"cmdheight
-try
-  set cmdheight=0
-catch
-  set cmdheight=1
-endtry
-
+set ambiwidth=double
+set foldmethod=syntax
 "}}}
 
 "mapping {{{
