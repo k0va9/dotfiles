@@ -32,6 +32,7 @@ set shiftwidth=2
 set expandtab
 set ambiwidth=double
 set foldmethod=syntax
+set mouse=
 "}}}
 
 "mapping {{{
