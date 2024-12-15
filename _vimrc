@@ -39,7 +39,6 @@ call ddu#custom#patch_global(#{
   \ },
   \ kindOptions: #{
   \   file: #{
-  \     defaultAction: 'open',
   \   },
   \   action: #{
   \     defaultAction: 'do',
@@ -59,10 +58,13 @@ call ddu#custom#patch_global(#{
 autocmd FileType ddu-ff call s:my_ddu_keymaps()
 
 function! s:my_ddu_keymaps() abort
-  nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#do_action('itemAction')<CR>
+  nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#do_action('itemAction',
+        \ #{ name: 'open' })<CR>
   nnoremap <buffer><silent> p    <Cmd>call ddu#ui#do_action('preview')<CR>
   nnoremap <buffer><silent> a    <Cmd>call ddu#ui#do_action('chooseAction')<CR>
   nnoremap <buffer><silent> i    <Cmd>call ddu#ui#do_action('openFilterWindow')<CR>
+  nnoremap <buffer><silent> t    <Cmd>call ddu#ui#do_action('itemAction',
+        \ #{ name: 'open', params: #{command: 'tabedit'} })<CR>
   nnoremap <buffer><silent> q    <Cmd>call ddu#ui#do_action('quit')<CR>
 endfunction
 " }}}
