@@ -47,11 +47,11 @@ call ddu#custom#patch_global(#{
   \ uiParams: #{
   \     ff: #{
   \      split: 'floating',
+  \      floatingTitle: "file_rec",
   \      floatingBorder: 'double',
-  \      displaySourceName: 'long',
   \      displayTree: v:true,
   \     },
-  \ }
+  \ },
   \ })
 
 
