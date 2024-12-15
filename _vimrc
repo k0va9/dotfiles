@@ -7,6 +7,7 @@ function! PackInit() abort
   call minpac#add('ctrlpvim/ctrlp.vim')
   call minpac#add('vim-denops/denops.vim')
   call minpac#add('vim-fall/fall.vim')
+  call minpac#add('prettier/vim-prettier')
 
   "ddu
   call minpac#add('Shougo/ddu.vim')
