@@ -6,6 +6,7 @@ function! PackInit() abort
   call minpac#add('k-takata/minpac', { 'type': 'opt' })
   call minpac#add('ctrlpvim/ctrlp.vim')
   call minpac#add('vim-denops/denops.vim')
+  call minpac#add('vim-fall/fall.vim')
 
   "ddu
   call minpac#add('Shougo/ddu.vim')
@@ -98,6 +99,9 @@ if s:current_ff == "ddu"
   nnoremap <Space>f <Cmd>Ddu file_rec<CR>
 elseif s:current_ff == "ctrlp"
   nnoremap <leader>f <Cmd>CtrlP .<CR>
+elseif s:current_ff == "vim-fall"
+  nnoremap <leader>f <Cmd>Fall file<CR>
+endif
 
 
 tnoremap <C-[> <C-\><C-n>
