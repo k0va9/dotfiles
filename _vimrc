@@ -92,8 +92,15 @@ let g:mapleader="\<Space>"
 let s:current_ff="ddu"
 
 if s:current_ff == "ddu"
-  nnoremap ;gl <Cmd>Ddu git_log -source-param-git_log-showGraph=v:true<CR>
-  nnoremap <Space>f <Cmd>Ddu file_rec<CR>
+  nnoremap g<Space> <Cmd>Ddu git_log
+        \ -ui=ff
+        \ -ui-param-ff-floatingTitle=gitlog
+        \ -source-param-git_log-showGraph=v:true
+        \ <CR>
+  nnoremap <Space>f <Cmd>Ddu file_rec
+        \ -ui=ff
+        \ -ui-param-ff-floatingTitle=fuzzyfinnd
+        \ <CR>
 elseif s:current_ff == "ctrlp"
   nnoremap <leader>f <Cmd>CtrlP .<CR>
 elseif s:current_ff == "vim-fall"
