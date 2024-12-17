@@ -14,9 +14,11 @@ function! PackInit() abort
   call minpac#add('Shougo/ddu-ui-ff')
   call minpac#add('Shougo/ddu-ui-filer')
   call minpac#add('Shougo/ddu-source-file_rec')
+  call minpac#add('Shougo/ddu-source-file')
   call minpac#add('Shougo/ddu-source-action')
   call minpac#add('Shougo/ddu-filter-matcher_substring')
   call minpac#add('Shougo/ddu-kind-file')
+  call minpac#add('Shougo/ddu-column-filename')
   call minpac#add('Shougo/ddu-commands.vim')
   call minpac#add('kyoh86/ddu-source-git_log')
 
@@ -49,17 +51,22 @@ call ddu#custom#patch_global(#{
   \ })
 
 
-autocmd FileType ddu-ff call s:my_ddu_keymaps()
+autocmd FileType ddu-ff    call s:my_ddu_keymaps('ff')
+autocmd FileType ddu-filer call s:my_ddu_keymaps('filer')
 
-function! s:my_ddu_keymaps() abort
-  nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#do_action('itemAction',
-        \ #{ name: 'open' })<CR>
-  nnoremap <buffer><silent> p    <Cmd>call ddu#ui#do_action('preview')<CR>
+function! s:my_ddu_keymaps(ui) abort
+  nnoremap <buffer><silent> q    <Cmd>call ddu#ui#do_action('quit')<CR>
   nnoremap <buffer><silent> a    <Cmd>call ddu#ui#do_action('chooseAction')<CR>
-  nnoremap <buffer><silent> i    <Cmd>call ddu#ui#do_action('openFilterWindow')<CR>
+  nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#do_action('itemAction', #{ name: 'open' })<CR>
   nnoremap <buffer><silent> t    <Cmd>call ddu#ui#do_action('itemAction',
         \ #{ name: 'open', params: #{command: 'tabedit'} })<CR>
-  nnoremap <buffer><silent> q    <Cmd>call ddu#ui#do_action('quit')<CR>
+
+  if a:ui == 'ff'
+    nnoremap <buffer><silent> p <Cmd>call ddu#ui#do_action('preview')<CR>
+    nnoremap <buffer><silent> i <Cmd>call ddu#ui#do_action('openFilterWindow')<CR>
+  elseif a:ui == 'filer'
+    nnoremap <buffer><silent> l <Cmd>call ddu#ui#do_action('expandItem', #{ mode: 'toggle'})<CR>
+  endif
 endfunction
 " }}}
 
@@ -100,6 +107,12 @@ if s:current_ff == "ddu"
   nnoremap <Space>f <Cmd>Ddu file_rec
         \ -ui=ff
         \ -ui-param-ff-floatingTitle=fuzzyfinnd
+        \ <CR>
+  nnoremap ,f <Cmd>Ddu file
+        \ -ui=filer
+        \ -ui-param-filer-floatingTitle=filer
+        \ -ui-param-filer-sort=extensionkind
+        \ -source-option-filer-columns=filename
         \ <CR>
 elseif s:current_ff == "ctrlp"
   nnoremap <leader>f <Cmd>CtrlP .<CR>
