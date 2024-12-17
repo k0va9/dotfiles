@@ -30,27 +30,21 @@ endfunction
 
 " ddu {{{
 call ddu#custom#patch_global(#{
-  \ ui: 'ff',
-  \ sources: [#{name: 'file_rec', params: {}}],
   \ sourceOptions: #{
   \   _: #{
   \       matchers: ['matcher_substring'],
   \     },
   \ },
   \ kindOptions: #{
-  \   file: #{
-  \   },
   \   action: #{
   \     defaultAction: 'do',
   \   }
   \ },
   \ uiParams: #{
-  \     ff: #{
-  \      split: 'floating',
-  \      floatingTitle: "file_rec",
-  \      floatingBorder: 'double',
-  \      displayTree: v:true,
-  \     },
+  \   _:  #{
+  \    split: 'floating',
+  \    floatingBorder: 'double',
+  \   }
   \ },
   \ })
 
