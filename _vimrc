@@ -56,10 +56,11 @@ autocmd FileType ddu-ff    call s:my_ddu_keymaps('ff')
 autocmd FileType ddu-filer call s:my_ddu_keymaps('filer')
 
 function! s:my_ddu_keymaps(ui) abort
-  nnoremap <buffer><silent> q    <Cmd>call ddu#ui#do_action('quit')<CR>
-  nnoremap <buffer><silent> a    <Cmd>call ddu#ui#do_action('chooseAction')<CR>
-  nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#do_action('itemAction', #{ name: 'open' })<CR>
-  nnoremap <buffer><silent> t    <Cmd>call ddu#ui#do_action('itemAction',
+  nnoremap <buffer><silent> q     <Cmd>call ddu#ui#do_action('quit')<CR>
+  nnoremap <buffer><silent> <ESC> <Cmd>call ddu#ui#do_action('quit')<CR>
+  nnoremap <buffer><silent> a     <Cmd>call ddu#ui#do_action('chooseAction')<CR>
+  nnoremap <buffer><silent> <CR>  <Cmd>call ddu#ui#do_action('itemAction', #{ name: 'open' })<CR>
+  nnoremap <buffer><silent> t     <Cmd>call ddu#ui#do_action('itemAction',
         \ #{ name: 'open', params: #{command: 'tabedit'} })<CR>
 
   if a:ui == 'ff'
@@ -67,6 +68,8 @@ function! s:my_ddu_keymaps(ui) abort
     nnoremap <buffer><silent> i <Cmd>call ddu#ui#do_action('openFilterWindow')<CR>
   elseif a:ui == 'filer'
     nnoremap <buffer><silent> l <Cmd>call ddu#ui#do_action('expandItem', #{ mode: 'toggle'})<CR>
+    nnoremap <buffer><silent> K <Cmd>call ddu#ui#do_action('itemAction', #{ name: 'newDirectory' })<CR>
+    nnoremap <buffer><silent> N <Cmd>call ddu#ui#do_action('itemAction', #{ name: 'newFile' })<CR>
   endif
 endfunction
 " }}}
