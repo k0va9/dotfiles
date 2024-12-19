@@ -35,6 +35,7 @@ call ddu#custom#patch_global(#{
   \ sourceOptions: #{
   \   _: #{
   \       matchers: ['matcher_substring'],
+  \       ignoreCase: v:true
   \     },
   \ },
   \ kindOptions: #{
