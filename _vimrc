@@ -84,6 +84,8 @@ command! PackClean call PackInit() | call minpac#clean()
 "}}}
 
 "opts {{{
+
+let loaded_netrwPlugin = 1
 colorscheme habamax
 
 "for lsp preview
