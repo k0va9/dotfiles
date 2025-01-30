@@ -8,6 +8,8 @@ function! PackInit() abort
   call minpac#add('vim-denops/denops.vim')
   call minpac#add('vim-fall/fall.vim')
   call minpac#add('prettier/vim-prettier')
+  call minpac#add('cocopon/iceberg.vim')
+
 
   "ddu
   call minpac#add('Shougo/ddu.vim')
@@ -86,10 +88,14 @@ command! PackClean call PackInit() | call minpac#clean()
 "opts {{{
 
 let loaded_netrwPlugin = 1
-colorscheme habamax
 
-"for lsp preview
-highlight clear FloatBorder
+try
+  colorscheme iceberg
+catch
+  colorscheme habamax
+  "for lsp preview
+  highlight clear FloatBorder
+endtry
 
 set shiftwidth=2
 set expandtab
