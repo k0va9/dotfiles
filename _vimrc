@@ -49,6 +49,9 @@ call ddu#custom#patch_global(#{
   \   _:  #{
   \    split: 'floating',
   \    floatingBorder: 'double',
+  \   },
+  \   ff: #{
+  \     prompt: ">> "
   \   }
   \ },
   \ })
@@ -123,7 +126,7 @@ if s:current_ff == "ddu"
   nnoremap ,f <Cmd>Ddu file
         \ -ui=filer
         \ -ui-param-filer-floatingTitle=filer
-        \ -ui-param-filer-sort=extensionkind
+        \ -ui-param-filer-sort=filename
         \ -source-option-filer-columns=filename
         \ <CR>
 elseif s:current_ff == "ctrlp"
