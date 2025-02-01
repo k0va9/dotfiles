@@ -124,6 +124,7 @@ if s:current_ff == "ddu"
   nnoremap g<Space> <Cmd>Ddu git_log
         \ -ui=ff
         \ -ui-param-ff-floatingTitle=gitlog
+        \ -ui-param-ff-winWidth=&columns
         \ -source-param-git_log-showGraph=v:true
         \ <CR>
   nnoremap <Space>f <Cmd>Ddu file_rec
