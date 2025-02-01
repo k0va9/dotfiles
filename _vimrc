@@ -1,5 +1,12 @@
 "plugins {{{
 function! PackInit() abort
+  let url = 'https://github.com/k-takata/minpac.git'
+  let dir = '~/.config/nvim/pack/minpac/opt/minpac'
+
+  if !isdirectory(expand(l:dir))
+    silent execute printf("git clone %s %s", url, dir)
+  endif
+
   packadd minpac
 
   call minpac#init()
