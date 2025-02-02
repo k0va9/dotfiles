@@ -40,6 +40,10 @@ endfunction
 
 
 " ddu {{{
+call ddu#custom#action('ui', 'ff', 'tabedit',
+  \ { args -> ddu#ui#do_action('itemAction', #{params: #{command: 'tabedit'}})
+  \ })
+
 call ddu#custom#patch_global(#{
   \ sourceOptions: #{
   \   _: #{
@@ -74,10 +78,6 @@ call ddu#custom#patch_global(#{
 autocmd FileType ddu-ff    call s:my_ddu_keymaps('ff')
 autocmd FileType ddu-filer call s:my_ddu_keymaps('filer')
 
-function! s:ddu_tabopen_action(args) abort
-  call ddu#ui#do_action('itemAction', #{params: #{command: 'tabedit'} })
-endfunction
-call ddu#custom#action('ui', 'ff', 'tabedit', function('s:ddu_tabopen_action'))
 
 function! s:my_ddu_keymaps(ui) abort
   nnoremap <buffer><silent> q     <Cmd>call ddu#ui#do_action('quit')<CR>
