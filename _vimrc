@@ -61,7 +61,8 @@ call ddu#custom#patch_global(#{
   \ uiParams: #{
   \   _:  #{
   \    split: 'floating',
-  \    floatingBorder: 'double',
+  \    floatingBorder: 'rounded',
+  \    floatingTitlePos: 'center'
   \   },
   \   ff: #{
   \     prompt: ">> "
