@@ -50,7 +50,13 @@ call ddu#custom#patch_global(#{
   \ kindOptions: #{
   \   action: #{
   \     defaultAction: 'do',
-  \   }
+  \   },
+  \   file_rec: #{
+  \     defaultAction: 'open',
+  \   },
+  \   file: #{
+  \     defaultAction: 'open',
+  \   },
   \ },
   \ uiParams: #{
   \   _:  #{
@@ -76,7 +82,7 @@ function! s:my_ddu_keymaps(ui) abort
   nnoremap <buffer><silent> q     <Cmd>call ddu#ui#do_action('quit')<CR>
   nnoremap <buffer><silent> <ESC> <Cmd>call ddu#ui#do_action('quit')<CR>
   nnoremap <buffer><silent> a     <Cmd>call ddu#ui#do_action('chooseAction')<CR>
-  nnoremap <buffer><silent> <CR>  <Cmd>call ddu#ui#do_action('itemAction', #{ name: 'open' })<CR>
+  nnoremap <buffer><silent> <CR>  <Cmd>call ddu#ui#do_action('itemAction')<CR>
   nnoremap <buffer><silent> t     <Cmd>call ddu#ui#do_action('tabedit')<CR>
 
   if a:ui == 'ff'
