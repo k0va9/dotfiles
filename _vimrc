@@ -74,22 +74,23 @@ call ddu#custom#patch_global(#{
   \ },
   \ })
 
-
-autocmd FileType ddu-ff    call s:my_ddu_keymaps('ff')
-autocmd FileType ddu-filer call s:my_ddu_keymaps('filer')
+autocmd FileType ddu-ff,ddu-filer call s:my_ddu_keymaps()
 
 
-function! s:my_ddu_keymaps(ui) abort
+
+function! s:my_ddu_keymaps() abort
   nnoremap <buffer><silent> q     <Cmd>call ddu#ui#do_action('quit')<CR>
   nnoremap <buffer><silent> <ESC> <Cmd>call ddu#ui#do_action('quit')<CR>
   nnoremap <buffer><silent> a     <Cmd>call ddu#ui#do_action('chooseAction')<CR>
   nnoremap <buffer><silent> <CR>  <Cmd>call ddu#ui#do_action('itemAction')<CR>
   nnoremap <buffer><silent> t     <Cmd>call ddu#ui#do_action('tabedit')<CR>
 
-  if a:ui == 'ff'
+  let uiName =  ddu#custom#get_current()->get('ui')
+
+  if uiName == 'ff'
     nnoremap <buffer><silent> p <Cmd>call ddu#ui#do_action('preview')<CR>
     nnoremap <buffer><silent> i <Cmd>call ddu#ui#do_action('openFilterWindow')<CR>
-  elseif a:ui == 'filer'
+  elseif uiName == 'filer'
     nnoremap <buffer><silent> l <Cmd>call ddu#ui#do_action('expandItem', #{ mode: 'toggle'})<CR>
     nnoremap <buffer><silent> K <Cmd>call ddu#ui#do_action('itemAction', #{ name: 'newDirectory' })<CR>
     nnoremap <buffer><silent> N <Cmd>call ddu#ui#do_action('itemAction', #{ name: 'newFile' })<CR>
