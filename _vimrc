@@ -38,7 +38,6 @@ function! PackInit() abort
   call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
 endfunction
 
-
 " ddu {{{
 call ddu#custom#action('ui', 'ff', 'tabedit',
   \ { args -> ddu#ui#do_action('itemAction', #{params: #{command: 'tabedit'}})
@@ -75,8 +74,6 @@ call ddu#custom#patch_global(#{
   \ })
 
 autocmd FileType ddu-ff,ddu-filer call s:my_ddu_keymaps()
-
-
 
 function! s:my_ddu_keymaps() abort
   nnoremap <buffer><silent> q     <Cmd>call ddu#ui#do_action('quit')<CR>
