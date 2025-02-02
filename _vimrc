@@ -67,13 +67,17 @@ call ddu#custom#patch_global(#{
 autocmd FileType ddu-ff    call s:my_ddu_keymaps('ff')
 autocmd FileType ddu-filer call s:my_ddu_keymaps('filer')
 
+function! s:ddu_tabopen_action(args) abort
+  call ddu#ui#do_action('itemAction', #{params: #{command: 'tabedit'} })
+endfunction
+call ddu#custom#action('ui', 'ff', 'tabedit', function('s:ddu_tabopen_action'))
+
 function! s:my_ddu_keymaps(ui) abort
   nnoremap <buffer><silent> q     <Cmd>call ddu#ui#do_action('quit')<CR>
   nnoremap <buffer><silent> <ESC> <Cmd>call ddu#ui#do_action('quit')<CR>
   nnoremap <buffer><silent> a     <Cmd>call ddu#ui#do_action('chooseAction')<CR>
   nnoremap <buffer><silent> <CR>  <Cmd>call ddu#ui#do_action('itemAction', #{ name: 'open' })<CR>
-  nnoremap <buffer><silent> t     <Cmd>call ddu#ui#do_action('itemAction',
-        \ #{ name: 'open', params: #{command: 'tabedit'} })<CR>
+  nnoremap <buffer><silent> t     <Cmd>call ddu#ui#do_action('tabedit')<CR>
 
   if a:ui == 'ff'
     nnoremap <buffer><silent> p <Cmd>call ddu#ui#do_action('preview')<CR>
