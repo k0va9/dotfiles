@@ -1,7 +1,10 @@
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
 fi
-eval "$(~/.local/bin/mise activate zsh)"
+
+if [ -x ~/.local/bin/mise ]; then
+  eval "$(~/.local/bin/mise activate zsh)"
+fi
 
 setopt PROMPT_SUBST
 PS1='%n@%m%~$(__git_ps1 "(%s)")%(!.#.$) '
