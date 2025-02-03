@@ -121,6 +121,7 @@ set expandtab
 set ambiwidth=double
 set foldmethod=syntax
 set mouse=
+set noswapfile
 "}}}
 
 "mapping {{{
