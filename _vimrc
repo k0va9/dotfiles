@@ -68,7 +68,10 @@ call ddu#custom#patch_global(#{
   \    floatingTitlePos: 'center'
   \   },
   \   ff: #{
-  \     prompt: ">> "
+  \     prompt: ">> ",
+  \     autoAction: #{ name: "preview" },
+  \     previewFloating: v:true,
+  \     previewFloatingBorder: "rounded",
   \   }
   \ },
   \ })
@@ -140,6 +143,7 @@ if s:current_ff == "ddu"
   nnoremap <Space>f <Cmd>Ddu file_rec
         \ -ui=ff
         \ -ui-param-ff-floatingTitle=fuzzyfinnd
+        \ -ui-param-ff-startAutoAction=v:true
         \ <CR>
   nnoremap ,f <Cmd>Ddu file
         \ -ui=filer
