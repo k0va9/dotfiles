@@ -50,6 +50,11 @@ call ddu#custom#patch_global(#{
   \       ignoreCase: v:true
   \     },
   \ },
+  \ sourceParams: #{
+  \  file_rec: #{
+  \     ignoredDirectories: ['.git','node_modules','vendor','.vscode']
+  \  },
+  \ },
   \ kindOptions: #{
   \   action: #{
   \     defaultAction: 'do',
