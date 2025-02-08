@@ -8,3 +8,9 @@ fi
 
 setopt PROMPT_SUBST
 PS1='%n@%m%~$(__git_ps1 "(%s)")%(!.#.$) '
+
+alias ls='ls -a --color'
+alias ll='ls -l'
+alias dcp='docker compose up -d'
+alias dcd='docker compose down'
+alias doe='docker exec -it $(docker ps --format "{{.Names}}" | fzf) bash'
