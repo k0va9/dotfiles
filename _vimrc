@@ -23,6 +23,7 @@ function! PackInit() abort
   call minpac#add('vim-fall/fall.vim')
   call minpac#add('prettier/vim-prettier')
   call minpac#add('cocopon/iceberg.vim')
+  call minpac#add('tyru/caw.vim')
 
 
   "ddu
@@ -112,6 +113,8 @@ endfunction
 
 "disable Please do... message
 let g:lsp_settings_enable_suggestions=0
+let g:caw_no_default_keymappings=1
+
 "}}}
 
 "commands {{{
@@ -145,6 +148,11 @@ let g:mapleader="\<Space>"
 call Key('t' , '<C-[>', '<C-\><C-n>')
 call Key('n' , 'gh'   , '<Cmd>LspHover<CR>')
 call Key('n' , 'gd'   , '<Cmd>LspDefinition<CR>')
+call Key('nx', 'ccm'  , '<Plug>(caw:hatpos:toggle)')
+call Key('nx', 'ccz'  , '<Plug>(caw:zeropos:comment)')
+call Key('nx', 'ccuz' , '<Plug>(caw:zeropos:uncomment)')
+call Key('nx', 'cca'  , '<Plug>(caw:dollarpos:comment)')
+call Key('nx', 'ccua' , '<Plug>(caw:dollarpos:uncomment)')
 
 " vim-fall | ddu | ctrlp
 let s:current_ff="ddu"
