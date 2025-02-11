@@ -1,3 +1,10 @@
+
+function! Key(modes, key, action) abort
+  for mode in split(a:modes, '\zs')
+    execute printf('%snoremap %s %s', mode, a:key, a:action)
+  endfor
+endfunction
+
 "plugins {{{
 function! PackInit() abort
   let url = 'https://github.com/k-takata/minpac.git'
@@ -135,6 +142,10 @@ set noswapfile
 "mapping {{{
 let g:mapleader="\<Space>"
 
+call Key('t' , '<C-[>', '<C-\><C-n>')
+call Key('n' , 'gh'   , '<Cmd>LspHover<CR>')
+call Key('n' , 'gd'   , '<Cmd>LspDefinition<CR>')
+
 " vim-fall | ddu | ctrlp
 let s:current_ff="ddu"
 
@@ -162,10 +173,6 @@ elseif s:current_ff == "vim-fall"
   nnoremap <leader>f <Cmd>Fall file<CR>
 endif
 
-
-tnoremap <C-[> <C-\><C-n>
-nnoremap gh <Cmd>LspHover<CR>
-nnoremap gd <Cmd>LspDefinition<CR>
 "}}}
 
 " vim: foldmethod=marker foldlevelstart=99
