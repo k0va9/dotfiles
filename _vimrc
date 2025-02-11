@@ -147,7 +147,9 @@ let g:mapleader="\<Space>"
 
 call Key('t' , '<C-[>', '<C-\><C-n>')
 call Key('n' , 'gh'   , '<Cmd>LspHover<CR>')
+call Key('n' , 'gr'   , '<Cmd>LspReferences<CR>')
 call Key('n' , 'gd'   , '<Cmd>LspDefinition<CR>')
+call Key('nx', 'gf'   , '<Cmd>LspDocumentFormatSync<CR>')
 call Key('nx', 'ccm'  , '<Plug>(caw:hatpos:toggle)')
 call Key('nx', 'ccz'  , '<Plug>(caw:zeropos:comment)')
 call Key('nx', 'ccuz' , '<Plug>(caw:zeropos:uncomment)')
