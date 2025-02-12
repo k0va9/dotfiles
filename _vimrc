@@ -1,7 +1,12 @@
 
-function! Key(modes, key, action) abort
+function! Key(modes, key, action, buf = v:false, silent = v:false) abort
+  let base = ['%snoremap']
+
+  if a:buf    | call add(base,'<buffer>') | endif
+  if a:silent | call add(base,'<silent>') | endif
+
   for mode in split(a:modes, '\zs')
-    execute printf('%snoremap %s %s', mode, a:key, a:action)
+    execute printf(join(base,' ').' %s %s', mode, a:key, a:action)
   endfor
 endfunction
 
