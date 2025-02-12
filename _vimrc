@@ -56,6 +56,12 @@ call ddu#custom#action('ui', 'ff', 'tabedit',
   \ { args -> ddu#ui#do_action('itemAction', #{params: #{command: 'tabedit'}})
   \ })
 
+call ddu#custom#action('ui', 'filer', 'createNewDirectory',
+  \ { -> ddu#ui#do_action('itemAction', #{name: 'newDirectory'}) })
+
+call ddu#custom#action('ui', 'filer', 'createNewFile',
+      \ { -> ddu#ui#do_action('itemAction', #{name: 'newFile'}) })
+
 call ddu#custom#patch_global(#{
   \ sourceOptions: #{
   \   _: #{
