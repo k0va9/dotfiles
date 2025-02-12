@@ -185,4 +185,4 @@ endif
 
 "}}}
 
-" vim:foldmethod=marker:foldlevelstart=99:
+" vim:foldmethod=marker:foldlevelstart=0
