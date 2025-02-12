@@ -103,21 +103,21 @@ call ddu#custom#patch_global(#{
 autocmd FileType ddu-ff,ddu-filer call s:my_ddu_keymaps()
 
 function! s:my_ddu_keymaps() abort
-  nnoremap <buffer><silent> q     <Cmd>call ddu#ui#do_action('quit')<CR>
-  nnoremap <buffer><silent> <ESC> <Cmd>call ddu#ui#do_action('quit')<CR>
-  nnoremap <buffer><silent> a     <Cmd>call ddu#ui#do_action('chooseAction')<CR>
-  nnoremap <buffer><silent> <CR>  <Cmd>call ddu#ui#do_action('itemAction')<CR>
-  nnoremap <buffer><silent> t     <Cmd>call ddu#ui#do_action('tabedit')<CR>
+  call Key('n', 'q'    , "<Cmd>call ddu#ui#do_action('quit')<CR>"        , v:true, v:true)
+  call Key('n', 'a'    , "<Cmd>call ddu#ui#do_action('chooseAction')<CR>", v:true, v:true)
+  call Key('n', 't'    , "<Cmd>call ddu#ui#do_action('tabedit')<CR>"     , v:true, v:true)
+  call Key('n', '<ESC>', "<Cmd>call ddu#ui#do_action('quit')<CR>"        , v:true, v:true)
+  call Key('n', '<ESC>', "<Cmd>call ddu#ui#do_action('quit')<CR>"        , v:true, v:true)
+  call Key('n', '<CR>' , "<Cmd>call ddu#ui#do_action('itemAction')<CR>"  , v:true, v:true)
 
   let uiName =  ddu#custom#get_current()->get('ui')
 
   if uiName == 'ff'
-    nnoremap <buffer><silent> p <Cmd>call ddu#ui#do_action('preview')<CR>
-    nnoremap <buffer><silent> i <Cmd>call ddu#ui#do_action('openFilterWindow')<CR>
+    call Key('n', 'i', "<Cmd>call ddu#ui#do_action('openFilterWindow')<CR>", v:true, v:true)
   elseif uiName == 'filer'
-    nnoremap <buffer><silent> l <Cmd>call ddu#ui#do_action('expandItem', #{ mode: 'toggle'})<CR>
-    nnoremap <buffer><silent> K <Cmd>call ddu#ui#do_action('itemAction', #{ name: 'newDirectory' })<CR>
-    nnoremap <buffer><silent> N <Cmd>call ddu#ui#do_action('itemAction', #{ name: 'newFile' })<CR>
+    call Key('n', 'l', "<Cmd>call ddu#ui#do_action('expandItem', #{ mode: 'toggle'})<CR>", v:true, v:true)
+    call Key('n', 'N', "<Cmd>call ddu#ui#do_action('createNewFile')<CR>"     , v:true, v:true)
+    call Key('n', 'K', "<Cmd>call ddu#ui#do_action('createNewDirectory')<CR>", v:true, v:true)
   endif
 endfunction
 " }}}
