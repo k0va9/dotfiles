@@ -34,13 +34,9 @@ function! PackInit() abort
   "ddu
   call minpac#add('Shougo/ddu.vim')
   call minpac#add('Shougo/ddu-ui-ff')
-  call minpac#add('Shougo/ddu-ui-filer')
   call minpac#add('Shougo/ddu-source-file_rec')
-  call minpac#add('Shougo/ddu-source-file')
   call minpac#add('Shougo/ddu-source-action')
   call minpac#add('Shougo/ddu-filter-matcher_substring')
-  call minpac#add('Shougo/ddu-kind-file')
-  call minpac#add('Shougo/ddu-column-filename')
   call minpac#add('Shougo/ddu-commands.vim')
   call minpac#add('kyoh86/ddu-source-git_log')
 
@@ -56,11 +52,6 @@ call ddu#custom#action('ui', 'ff', 'tabedit',
   \ { args -> ddu#ui#do_action('itemAction', #{params: #{command: 'tabedit'}})
   \ })
 
-call ddu#custom#action('ui', 'filer', 'createNewDirectory',
-  \ { -> ddu#ui#do_action('itemAction', #{name: 'newDirectory'}) })
-
-call ddu#custom#action('ui', 'filer', 'createNewFile',
-      \ { -> ddu#ui#do_action('itemAction', #{name: 'newFile'}) })
 
 call ddu#custom#patch_global(#{
   \ sourceOptions: #{
@@ -111,10 +102,6 @@ function! s:my_ddu_keymaps() abort
 
   if uiName == 'ff'
     call Key('n', 'i', "<Cmd>call ddu#ui#do_action('openFilterWindow')<CR>", v:true, v:true)
-  elseif uiName == 'filer'
-    call Key('n', 'l', "<Cmd>call ddu#ui#do_action('expandItem', #{ mode: 'toggle'})<CR>", v:true, v:true)
-    call Key('n', 'N', "<Cmd>call ddu#ui#do_action('createNewFile')<CR>"     , v:true, v:true)
-    call Key('n', 'K', "<Cmd>call ddu#ui#do_action('createNewDirectory')<CR>", v:true, v:true)
   endif
 endfunction
 " }}}
@@ -178,12 +165,6 @@ if s:current_ff == "ddu"
         \ -ui=ff
         \ -ui-param-ff-floatingTitle=fuzzyfinnd
         \ -ui-param-ff-startAutoAction=v:true
-        \ <CR>
-  nnoremap ,f <Cmd>Ddu file
-        \ -ui=filer
-        \ -ui-param-filer-floatingTitle=filer
-        \ -ui-param-filer-sort=filename
-        \ -source-option-filer-columns=filename
         \ <CR>
 elseif s:current_ff == "ctrlp"
   nnoremap <leader>f <Cmd>CtrlP .<CR>
