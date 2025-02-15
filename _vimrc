@@ -93,9 +93,6 @@ call ddu#custom#patch_global(#{
   \   },
   \   ff: #{
   \     prompt: ">> ",
-  \     autoAction: #{ name: "preview" },
-  \     previewFloating: v:true,
-  \     previewFloatingBorder: "rounded",
   \   }
   \ },
   \ })
