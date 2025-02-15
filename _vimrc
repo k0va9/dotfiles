@@ -29,7 +29,7 @@ function! PackInit() abort
   call minpac#add('prettier/vim-prettier')
   call minpac#add('cocopon/iceberg.vim')
   call minpac#add('tyru/caw.vim')
-
+  call minpac#add('mattn/vim-molder')
 
   "ddu
   call minpac#add('Shougo/ddu.vim')
@@ -152,6 +152,10 @@ call Key('nx', 'cca'  , '<Plug>(caw:dollarpos:comment)')
 call Key('nx', 'ccua' , '<Plug>(caw:dollarpos:uncomment)')
 
 " vim-fall | ddu | ctrlp
+autocmd FileType molder 
+      \ call Key('n', 'h', '<Plug>(molder-up)',v:true)   | 
+      \ call Key('n', 'l', '<Plug>(molder-open)',v:true)
+
 let s:current_ff="ddu"
 
 if s:current_ff == "ddu"
